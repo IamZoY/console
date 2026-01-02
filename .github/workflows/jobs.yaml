@@ -222,7 +222,7 @@ jobs:
           cd $GITHUB_WORKSPACE/minio_repository;
 
           echo "Replace Console with local repo"
-          echo "replace github.com/minio/console => ../" >> go.mod
+          echo "replace github.com/IamZoY/console => ../" >> go.mod
 
           echo "updates to go.mod needed; to update it: go mod tidy"
           go mod tidy
