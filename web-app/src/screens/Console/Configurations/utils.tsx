@@ -16,6 +16,7 @@
 import React from "react";
 import { IElement, IElementValue, IOverrideEnv, OverrideValue } from "./types";
 import {
+  AddNewTagIcon,
   CodeIcon,
   CompressIcon,
   ConsoleIcon,
@@ -72,6 +73,11 @@ export const configurationElements: IElement[] = [
     icon: <LogsIcon />,
     configuration_id: "audit_kafka",
     configuration_label: "Audit Kafka",
+  },
+  {
+    icon: <AddNewTagIcon />,
+    configuration_id: "event_tag",
+    configuration_label: "Event Tagging",
   },
 ];
 
@@ -391,6 +397,19 @@ export const fieldsConfigurations: any = {
       label: "Version",
       tooltip: "Specify the version of the Kafka cluster",
       type: "string",
+    },
+  ],
+  event_tag: [
+    {
+      name: "enable_event_tagging",
+      required: false,
+      label: "Enable Event Tagging",
+      tooltip:
+        "Automatically tag objects with success/failure status when events are sent",
+      type: "on|off",
+      customValueProcess: (origValue: string) => {
+        return origValue === "" || origValue === "on" ? "on" : "off";
+      },
     },
   ],
 };

@@ -134,8 +134,12 @@ func getConfig(ctx context.Context, client MinioAdmin, name string) ([]*models.C
 		return nil, err
 	}
 	var configSubSysList []*models.Configuration
+	// Custom subsystems that are not in madmin.SubSystems but are valid
+	customSubSystems := map[string]bool{
+		"event_tag": true,
+	}
 	for _, scfg := range subSysConfigs {
-		if !madmin.SubSystems.Contains(scfg.SubSystem) {
+		if !madmin.SubSystems.Contains(scfg.SubSystem) && !customSubSystems[scfg.SubSystem] {
 			return nil, fmt.Errorf("no sub-systems found")
 		}
 		var confkv []*models.ConfigurationKV
