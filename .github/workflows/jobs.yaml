@@ -5,13 +5,15 @@ name: Workflow
 on:
   pull_request:
     branches:
-      - main
+      - master
   push:
     branches:
-      - main
+      - master
 
 permissions:
-  contents: read # to fetch code (actions/checkout)
+  contents: read
+  pull-requests: write
+  checks: write
 
 # This ensures that previous jobs for the PR are canceled when the PR is
 # updated.
