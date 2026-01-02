@@ -30,10 +30,10 @@ import (
 
 	"github.com/IamZoY/console/pkg/utils"
 
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	systemApi "github.com/IamZoY/console/api/operations/system"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime/middleware"
 )
 
 func registerAdminInfoHandlers(api *operations.ConsoleAPI) {

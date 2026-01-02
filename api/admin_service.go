@@ -20,9 +20,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime/middleware"
 
 	svcApi "github.com/IamZoY/console/api/operations/service"
 )

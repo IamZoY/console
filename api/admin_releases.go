@@ -26,10 +26,10 @@ import (
 
 	"github.com/IamZoY/console/pkg/utils"
 
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	release "github.com/IamZoY/console/api/operations/release"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime/middleware"
 	"github.com/minio/pkg/v3/env"
 )
 

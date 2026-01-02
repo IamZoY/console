@@ -30,10 +30,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/IamZoY/console/pkg"
 	"github.com/blang/semver/v4"
 	"github.com/cheggaaa/pb/v3"
 	"github.com/minio/cli"
-	"github.com/IamZoY/console/pkg"
 	"github.com/minio/selfupdate"
 )
 

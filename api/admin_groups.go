@@ -19,9 +19,9 @@ package api
 import (
 	"context"
 
+	"github.com/IamZoY/console/api/operations"
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/IamZoY/console/api/operations"
 	"github.com/minio/madmin-go/v3"
 
 	groupApi "github.com/IamZoY/console/api/operations/group"

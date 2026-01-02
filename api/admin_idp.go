@@ -22,10 +22,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	"github.com/IamZoY/console/api/operations/idp"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime/middleware"
 	"github.com/minio/madmin-go/v3"
 )
 

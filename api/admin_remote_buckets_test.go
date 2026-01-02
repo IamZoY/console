@@ -26,10 +26,10 @@ import (
 
 	"github.com/IamZoY/console/pkg/utils"
 
-	"github.com/go-openapi/swag"
 	"github.com/IamZoY/console/api/operations"
 	bucketApi "github.com/IamZoY/console/api/operations/bucket"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/swag"
 	"github.com/minio/madmin-go/v3"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"

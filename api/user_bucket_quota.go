@@ -21,9 +21,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	bucketApi "github.com/IamZoY/console/api/operations/bucket"
+	"github.com/go-openapi/runtime/middleware"
 
 	"github.com/minio/madmin-go/v3"
 

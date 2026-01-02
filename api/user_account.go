@@ -24,11 +24,11 @@ import (
 
 	"github.com/IamZoY/console/pkg/auth"
 
-	"github.com/go-openapi/runtime"
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	accountApi "github.com/IamZoY/console/api/operations/account"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime"
+	"github.com/go-openapi/runtime/middleware"
 )
 
 func registerAccountHandlers(api *operations.ConsoleAPI) {

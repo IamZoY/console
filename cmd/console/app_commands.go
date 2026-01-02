@@ -25,8 +25,8 @@ import (
 
 	"github.com/IamZoY/console/pkg/logger"
 
-	"github.com/minio/cli"
 	"github.com/IamZoY/console/api"
+	"github.com/minio/cli"
 )
 
 var appCmds = []cli.Command{

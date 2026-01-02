@@ -20,11 +20,11 @@ import (
 	"context"
 	"strings"
 
-	"github.com/go-openapi/runtime/middleware"
-	"github.com/go-openapi/swag"
 	"github.com/IamZoY/console/api/operations"
 	bucketApi "github.com/IamZoY/console/api/operations/bucket"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime/middleware"
+	"github.com/go-openapi/swag"
 	"github.com/minio/minio-go/v7/pkg/notification"
 )
 

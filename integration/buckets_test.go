@@ -28,9 +28,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-openapi/loads"
 	"github.com/IamZoY/console/api"
 	"github.com/IamZoY/console/api/operations"
+	"github.com/go-openapi/loads"
 )
 
 var token string

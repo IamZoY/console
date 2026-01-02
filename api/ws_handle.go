@@ -31,9 +31,9 @@ import (
 
 	"github.com/IamZoY/console/pkg/utils"
 
-	errorsApi "github.com/go-openapi/errors"
 	"github.com/IamZoY/console/models"
 	"github.com/IamZoY/console/pkg/auth"
+	errorsApi "github.com/go-openapi/errors"
 	"github.com/minio/websocket"
 )
 

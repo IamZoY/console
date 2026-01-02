@@ -22,10 +22,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/go-openapi/runtime/middleware"
-	"github.com/go-openapi/swag"
 	"github.com/IamZoY/console/api/operations"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime/middleware"
+	"github.com/go-openapi/swag"
 	madmin "github.com/minio/madmin-go/v3"
 
 	cfgApi "github.com/IamZoY/console/api/operations/configuration"

@@ -20,10 +20,10 @@ import (
 	"context"
 	"errors"
 
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	configurationApi "github.com/IamZoY/console/api/operations/configuration"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime/middleware"
 )
 
 func registerAdminNotificationEndpointsHandlers(api *operations.ConsoleAPI) {

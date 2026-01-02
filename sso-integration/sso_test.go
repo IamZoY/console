@@ -33,10 +33,10 @@ import (
 
 	"github.com/IamZoY/console/models"
 
-	"github.com/go-openapi/loads"
 	"github.com/IamZoY/console/api"
 	"github.com/IamZoY/console/api/operations"
 	consoleoauth2 "github.com/IamZoY/console/pkg/auth/idp/oauth2"
+	"github.com/go-openapi/loads"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -31,12 +31,12 @@ import (
 
 	minioIAMPolicy "github.com/minio/pkg/v3/policy"
 
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	authApi "github.com/IamZoY/console/api/operations/auth"
 	"github.com/IamZoY/console/models"
 	"github.com/IamZoY/console/pkg/auth/idp/oauth2"
 	"github.com/IamZoY/console/pkg/auth/ldap"
+	"github.com/go-openapi/runtime/middleware"
 )
 
 type Conditions struct {

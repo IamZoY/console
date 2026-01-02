@@ -19,11 +19,11 @@ package api
 import (
 	"context"
 
-	"github.com/go-openapi/runtime"
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	siteRepApi "github.com/IamZoY/console/api/operations/site_replication"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime"
+	"github.com/go-openapi/runtime/middleware"
 	"github.com/minio/madmin-go/v3"
 )
 

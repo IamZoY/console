@@ -21,11 +21,11 @@ import (
 	"encoding/base64"
 	"strconv"
 
-	"github.com/dustin/go-humanize"
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	tieringApi "github.com/IamZoY/console/api/operations/tiering"
 	"github.com/IamZoY/console/models"
+	"github.com/dustin/go-humanize"
+	"github.com/go-openapi/runtime/middleware"
 	"github.com/minio/madmin-go/v3"
 )
 

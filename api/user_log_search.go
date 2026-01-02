@@ -22,10 +22,10 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	logApi "github.com/IamZoY/console/api/operations/logging"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime/middleware"
 	iampolicy "github.com/minio/pkg/v3/policy"
 )
 

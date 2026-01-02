@@ -50,11 +50,11 @@ import (
 	"github.com/minio/pkg/v3/mimedb"
 	xnet "github.com/minio/pkg/v3/net"
 
-	"github.com/go-openapi/errors"
-	"github.com/go-openapi/swag"
 	"github.com/IamZoY/console/api/operations"
 	"github.com/IamZoY/console/models"
 	"github.com/IamZoY/console/pkg/auth"
+	"github.com/go-openapi/errors"
+	"github.com/go-openapi/swag"
 	"github.com/unrolled/secure"
 )
 

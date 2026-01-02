@@ -28,9 +28,9 @@ import (
 	policyApi "github.com/IamZoY/console/api/operations/policy"
 	s3 "github.com/minio/minio-go/v7"
 
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime/middleware"
 	iampolicy "github.com/minio/pkg/v3/policy"
 
 	policies "github.com/IamZoY/console/api/policy"

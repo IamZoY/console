@@ -27,8 +27,8 @@ import (
 	"github.com/IamZoY/console/api/operations/system"
 	"github.com/IamZoY/console/models"
 
-	"github.com/go-openapi/loads"
 	"github.com/IamZoY/console/api/operations"
+	"github.com/go-openapi/loads"
 	"github.com/minio/madmin-go/v3"
 
 	asrt "github.com/stretchr/testify/assert"

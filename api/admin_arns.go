@@ -21,9 +21,9 @@ import (
 
 	systemApi "github.com/IamZoY/console/api/operations/system"
 
-	"github.com/go-openapi/runtime/middleware"
 	"github.com/IamZoY/console/api/operations"
 	"github.com/IamZoY/console/models"
+	"github.com/go-openapi/runtime/middleware"
 )
 
 func registerAdminArnsHandlers(api *operations.ConsoleAPI) {
