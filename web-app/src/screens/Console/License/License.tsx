@@ -60,6 +60,18 @@ const License = () => {
                   .
                 </p>
                 <p>
+                  In building this fork, I incorporated many features from
+                  different community forks, especially{" "}
+                  <a
+                    href="https://github.com/georgmangold/console"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    georgmangold/console
+                  </a>
+                  , which was very helpful in adding nice features.
+                </p>
+                <p>
                   It is important to note that <strong>MINIO</strong> is a
                   registered trademark of the MinIO Corporation. Consequently,
                   this project is not affiliated with or endorsed by the MinIO
@@ -95,7 +107,7 @@ const License = () => {
                 fontSize: "30px",
               }}
             >
-              Version: v{version}
+              Version: {version}
             </Box>
             <Box
               sx={{
