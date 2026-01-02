@@ -22,19 +22,19 @@ import (
 	"path/filepath"
 	"syscall"
 
+	"github.com/IamZoY/console/api"
+	"github.com/IamZoY/console/api/operations"
+	"github.com/IamZoY/console/pkg/certs"
 	"github.com/go-openapi/loads"
 	"github.com/jessevdk/go-flags"
 	"github.com/minio/cli"
-	"github.com/minio/console/api"
-	"github.com/minio/console/api/operations"
-	"github.com/minio/console/pkg/certs"
 )
 
 // starts the server
 var serverCmd = cli.Command{
 	Name:    "server",
 	Aliases: []string{"srv"},
-	Usage:   "Start MinIO Console server",
+	Usage:   "Start Console server",
 	Action:  StartServer,
 	Flags: []cli.Flag{
 		cli.StringFlag{
@@ -100,10 +100,15 @@ func buildServer() (*api.Server, error) {
 
 	consoleAPI := operations.NewConsoleAPI(swaggerSpec)
 	consoleAPI.Logger = api.LogInfo
+	// Pass in console application config. This needs to happen before the
+	// ConfigureAPI() call.
+	api.GlobalMinIOConfig = api.MinIOConfig{
+		OpenIDProviders: api.BuildOpenIDConsoleConfig(),
+	}
 	server := api.NewServer(consoleAPI)
 
 	parser := flags.NewParser(server, flags.Default)
-	parser.ShortDescription = "MinIO Console Server"
+	parser.ShortDescription = "Console Server"
 	parser.LongDescription = swaggerSpec.Spec().Info.Description
 
 	server.ConfigureFlags()

@@ -1,13 +1,14 @@
 # MinIO Console
 
-![build](https://github.com/minio/object-browser/actions/workflows/jobs.yaml/badge.svg) ![license](https://img.shields.io/badge/license-AGPL%20V3-blue)
+![build](https://github.com/IamZoY/console/workflows/Go/badge.svg) ![license](https://img.shields.io/badge/license-AGPL%20V3-blue)
 
 A graphical user interface for [MinIO](https://github.com/minio/minio)
 
-| Object Browser                       | Creating a bucket                     | Object Details                  |
-|--------------------------------------|-------------------------------|---------------------------------|
-| ![Object Browser](images/pic1-a.png) | ![Dashboard](images/pic2-a.png) | ![Dashboard](images/pic3-a.png) |
-| ![Object Browser](images/pic1-b.png) | ![Dashboard](images/pic2-b.png) | ![Dashboard](images/pic3-b.png) |
+> **Note:** This is a custom build of MinIO Console with admin features enabled.
+
+| Object Browser                     | Dashboard                     | Creating a bucket             |
+|------------------------------------|-------------------------------|-------------------------------|
+| ![Object Browser](images/pic3.png) | ![Dashboard](images/pic1.png) | ![Dashboard](images/pic2.png) |
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
@@ -32,8 +33,7 @@ MinIO Console is a library that provides a management and browser UI overlay for
 
 All `console` needs is a MinIO user with admin privileges and URL pointing to your MinIO deployment.
 
-> [!NOTE]
-> We don't recommend using MinIO's Operator Credentials
+> Note: We don't recommend using MinIO's Operator Credentials
 
 ### 1. Create a user `console` using `mc`
 
@@ -81,50 +81,50 @@ mc admin policy create myminio/ consoleAdmin admin.json
 mc admin policy attach myminio consoleAdmin --user=console
 ```
 
-> [!NOTE]
-> Additionally, you can create policies to limit the privileges for other `console` users, for example, if you
+> NOTE: Additionally, you can create policies to limit the privileges for other `console` users, for example, if you
 > want the user to only have access to dashboard, buckets, notifications and watch page, the policy should look like
 > this:
-> ```json
-> {
->   "Version": "2012-10-17",
->   "Statement": [
->     {
->       "Action": [
-> 	"admin:ServerInfo"
->       ],
->       "Effect": "Allow",
->       "Sid": ""
->     },
->     {
->       "Action": [
-> 	"s3:ListenBucketNotification",
-> 	"s3:PutBucketNotification",
-> 	"s3:GetBucketNotification",
-> 	"s3:ListMultipartUploadParts",
-> 	"s3:ListBucketMultipartUploads",
-> 	"s3:ListBucket",
-> 	"s3:HeadBucket",
-> 	"s3:GetObject",
-> 	"s3:GetBucketLocation",
-> 	"s3:AbortMultipartUpload",
-> 	"s3:CreateBucket",
-> 	"s3:PutObject",
-> 	"s3:DeleteObject",
-> 	"s3:DeleteBucket",
-> 	"s3:PutBucketPolicy",
-> 	"s3:DeleteBucketPolicy",
-> 	"s3:GetBucketPolicy"
->       ],
->       "Effect": "Allow",
->       "Resource": [
-> 	"arn:aws:s3:::*"
->       ],
->       "Sid": ""
->     }
->   ]
-> }
-> ```
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "admin:ServerInfo"
+      ],
+      "Effect": "Allow",
+      "Sid": ""
+    },
+    {
+      "Action": [
+        "s3:ListenBucketNotification",
+        "s3:PutBucketNotification",
+        "s3:GetBucketNotification",
+        "s3:ListMultipartUploadParts",
+        "s3:ListBucketMultipartUploads",
+        "s3:ListBucket",
+        "s3:HeadBucket",
+        "s3:GetObject",
+        "s3:GetBucketLocation",
+        "s3:AbortMultipartUpload",
+        "s3:CreateBucket",
+        "s3:PutObject",
+        "s3:DeleteObject",
+        "s3:DeleteBucket",
+        "s3:PutBucketPolicy",
+        "s3:DeleteBucketPolicy",
+        "s3:GetBucketPolicy"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:s3:::*"
+      ],
+      "Sid": ""
+    }
+  ]
+}
+```
 
 ## Start Console service:
 

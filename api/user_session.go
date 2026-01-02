@@ -23,7 +23,7 @@ import (
 	"strconv"
 	"time"
 
-	policies "github.com/minio/console/api/policy"
+	policies "github.com/IamZoY/console/api/policy"
 	"github.com/minio/madmin-go/v3"
 
 	jwtgo "github.com/golang-jwt/jwt/v4"
@@ -31,10 +31,12 @@ import (
 
 	minioIAMPolicy "github.com/minio/pkg/v3/policy"
 
+	"github.com/IamZoY/console/api/operations"
+	authApi "github.com/IamZoY/console/api/operations/auth"
+	"github.com/IamZoY/console/models"
+	"github.com/IamZoY/console/pkg/auth/idp/oauth2"
+	"github.com/IamZoY/console/pkg/auth/ldap"
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/minio/console/api/operations"
-	authApi "github.com/minio/console/api/operations/auth"
-	"github.com/minio/console/models"
 )
 
 type Conditions struct {
@@ -238,7 +240,7 @@ func getSessionResponse(ctx context.Context, session *models.Principal) (*models
 	envConstants.MaxConcurrentDownloads = getMaxConcurrentDownloadsLimit()
 
 	sessionResp := &models.SessionResponse{
-		Features:        getListOfEnabledFeatures(session),
+		Features:        getListOfEnabledFeatures(ctx, userAdminClient, session),
 		Status:          models.SessionResponseStatusOk,
 		Operator:        false,
 		DistributedMode: erasure,
@@ -252,14 +254,33 @@ func getSessionResponse(ctx context.Context, session *models.Principal) (*models
 }
 
 // getListOfEnabledFeatures returns a list of features
-func getListOfEnabledFeatures(session *models.Principal) []string {
+func getListOfEnabledFeatures(ctx context.Context, minioClient MinioAdmin, session *models.Principal) []string {
 	features := []string{}
+	logSearchURL := getLogSearchURL()
+	oidcEnabled := oauth2.IsIDPEnabled()
+	ldapEnabled := ldap.GetLDAPEnabled()
+
+	if logSearchURL != "" {
+		features = append(features, "log-search")
+	}
+	if oidcEnabled {
+		features = append(features, "oidc-idp", "external-idp")
+	}
+	if ldapEnabled {
+		features = append(features, "ldap-idp", "external-idp")
+	}
 
 	if session.Hm {
 		features = append(features, "hide-menu")
 	}
 	if session.Ob {
 		features = append(features, "object-browser-only")
+	}
+	if minioClient != nil {
+		_, err := minioClient.kmsStatus(ctx)
+		if err == nil {
+			features = append(features, "kms")
+		}
 	}
 
 	return features

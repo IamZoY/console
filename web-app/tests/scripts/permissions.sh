@@ -63,10 +63,10 @@ remove_policies() {
   mc admin policy remove minio inspect-not-allowed-"$TIMESTAMP"
   mc admin policy remove minio fix-prefix-policy-ui-crash-"$TIMESTAMP"
   mc admin policy remove minio delete-object-with-prefix-"$TIMESTAMP"
-  mc admin policy remove conditions-policy-"$TIMESTAMP"
-  mc admin policy remove conditions-policy-2-"$TIMESTAMP"
-  mc admin policy remove conditions-policy-3-"$TIMESTAMP"
-  mc admin policy remove conditions-policy-4-"$TIMESTAMP"
+  mc admin policy remove minio conditions-policy-"$TIMESTAMP"
+  mc admin policy remove minio conditions-policy-2-"$TIMESTAMP"
+  mc admin policy remove minio conditions-policy-3-"$TIMESTAMP"
+  mc admin policy remove minio conditions-policy-4-"$TIMESTAMP"
 }
 
 remove_buckets() {
@@ -86,6 +86,7 @@ __init__() {
   echo "$TIMESTAMP" >web-app/tests/constants/timestamp.txt
   export GOPATH=/tmp/gopath
   export PATH=${PATH}:${GOPATH}/bin
+  export MC_UPDATE=off
 
   go install github.com/minio/mc@latest
 
@@ -100,8 +101,10 @@ __init__() {
 main() {
   (yarn start &>/dev/null) &
   (./console server &>/dev/null) &
+  CONSOLE_PID=$!
   (testcafe "firefox:headless" "$1" -q --skip-js-errors -c 3)
   cleanup
+  kill -15 $CONSOLE_PID
 }
 
 (__init__ "$@" && main "$@")

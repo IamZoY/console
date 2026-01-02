@@ -23,8 +23,8 @@ import (
 	"sort"
 	"time"
 
+	"github.com/IamZoY/console/pkg"
 	"github.com/minio/cli"
-	"github.com/minio/console/pkg"
 	"github.com/minio/pkg/v3/console"
 	"github.com/minio/pkg/v3/trie"
 	"github.com/minio/pkg/v3/words"
@@ -97,10 +97,10 @@ func newApp(name string) *cli.App {
 	app := cli.NewApp()
 	app.Name = name
 	app.Version = pkg.Version + " - " + pkg.ShortCommitID
-	app.Author = "MinIO, Inc."
-	app.Usage = "MinIO Console Server"
-	app.Description = `MinIO Console Server`
-	app.Copyright = "(c) 2021 MinIO, Inc."
+	app.Author = "IamZoY"
+	app.Usage = "Console Server"
+	app.Description = "Console Server Admin UI for MinIO Server"
+	app.Copyright = "AGPLv3"
 	app.Compiled, _ = time.Parse(time.RFC3339, pkg.ReleaseTime)
 	app.Commands = commands
 	app.HideHelpCommand = true // Hide `help, h` command, we already have `minio --help`.

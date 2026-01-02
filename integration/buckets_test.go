@@ -28,9 +28,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/IamZoY/console/api"
+	"github.com/IamZoY/console/api/operations"
 	"github.com/go-openapi/loads"
-	"github.com/minio/console/api"
-	"github.com/minio/console/api/operations"
 )
 
 var token string

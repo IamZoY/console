@@ -23,10 +23,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/minio/console/pkg/logger"
+	"github.com/IamZoY/console/pkg/logger"
 
+	"github.com/IamZoY/console/api"
 	"github.com/minio/cli"
-	"github.com/minio/console/api"
 )
 
 var appCmds = []cli.Command{

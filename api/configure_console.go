@@ -39,22 +39,22 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/minio/console/pkg/logger"
-	"github.com/minio/console/pkg/utils"
+	"github.com/IamZoY/console/pkg/logger"
+	"github.com/IamZoY/console/pkg/utils"
 	"github.com/minio/minio-go/v7/pkg/credentials"
 
 	"github.com/klauspost/compress/gzhttp"
 
-	portal_ui "github.com/minio/console/web-app"
+	portal_ui "github.com/IamZoY/console/web-app"
 	"github.com/minio/pkg/v3/env"
 	"github.com/minio/pkg/v3/mimedb"
 	xnet "github.com/minio/pkg/v3/net"
 
+	"github.com/IamZoY/console/api/operations"
+	"github.com/IamZoY/console/models"
+	"github.com/IamZoY/console/pkg/auth"
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/swag"
-	"github.com/minio/console/api/operations"
-	"github.com/minio/console/models"
-	"github.com/minio/console/pkg/auth"
 	"github.com/unrolled/secure"
 )
 
@@ -115,13 +115,59 @@ func configureAPI(api *operations.ConsoleAPI) http.Handler {
 	registerLogoutHandlers(api)
 	// Register bucket handlers
 	registerBucketsHandlers(api)
+	// Register all users handlers
+	registerUsersHandlers(api)
+	// Register groups handlers
+	registerGroupsHandlers(api)
+	// Register policies handlers
+	registersPoliciesHandler(api)
+	// Register configurations handlers
+	registerConfigHandlers(api)
+	// Register bucket events handlers
+	registerBucketEventsHandlers(api)
+	// Register bucket lifecycle handlers
+	registerBucketsLifecycleHandlers(api)
+	// Register service handlers
+	registerServiceHandlers(api)
 	// Register session handlers
 	registerSessionHandlers(api)
+	// Register admin info handlers
+	registerAdminInfoHandlers(api)
+	// Register admin arns handlers
+	registerAdminArnsHandlers(api)
+	// Register admin notification endpoints handlers
+	registerAdminNotificationEndpointsHandlers(api)
+	// Register admin Service Account Handlers
+	registerServiceAccountsHandlers(api)
+	// Register admin remote buckets
+	registerAdminBucketRemoteHandlers(api)
+	// Register admin log search
+	registerLogSearchHandlers(api)
+	// Register admin KMS handlers
+	registerKMSHandlers(api)
+	// Register admin IDP handlers
+	registerIDPHandlers(api)
+	// Register Account handlers
+	registerAdminTiersHandlers(api)
+	// Register Inspect Handler
+	registerInspectHandler(api)
+	// Register nodes handlers
+	registerNodesHandler(api)
+
+	registerSiteReplicationHandler(api)
+	registerSiteReplicationStatusHandler(api)
+
+	// Operator Console
+
 	// Register Object's Handlers
 	registerObjectsHandlers(api)
 	// Register Bucket Quota's Handlers
 	registerBucketQuotaHandlers(api)
-	// Register Bucket Policy's Handlers
+	// Register Account handlers
+	registerAccountHandlers(api)
+
+	registerReleasesHandlers(api)
+
 	registerPublicObjectsHandlers(api)
 
 	api.PreServerShutdown = func() {}
