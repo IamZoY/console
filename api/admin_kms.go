@@ -22,9 +22,9 @@ import (
 	"sort"
 
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/minio/console/api/operations"
-	kmsAPI "github.com/minio/console/api/operations/k_m_s"
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/api/operations"
+	kmsAPI "github.com/IamZoY/console/api/operations/k_m_s"
+	"github.com/IamZoY/console/models"
 	"github.com/minio/madmin-go/v3"
 )
 

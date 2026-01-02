@@ -19,11 +19,11 @@ package api
 import (
 	"context"
 
-	systemApi "github.com/minio/console/api/operations/system"
+	systemApi "github.com/IamZoY/console/api/operations/system"
 
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/minio/console/api/operations"
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/api/operations"
+	"github.com/IamZoY/console/models"
 )
 
 func registerAdminArnsHandlers(api *operations.ConsoleAPI) {

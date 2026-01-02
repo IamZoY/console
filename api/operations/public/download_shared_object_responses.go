@@ -27,7 +27,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/models"
 )
 
 // DownloadSharedObjectOKCode is the HTTP code returned for type DownloadSharedObjectOK

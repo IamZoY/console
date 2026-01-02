@@ -26,7 +26,7 @@ import (
 
 	"github.com/go-openapi/runtime/middleware"
 
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/models"
 )
 
 // GetBucketQuotaHandlerFunc turns a function with the right signature into a get bucket quota handler

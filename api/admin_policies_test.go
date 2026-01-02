@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/models"
 	"github.com/minio/madmin-go/v3"
 	iampolicy "github.com/minio/pkg/v3/policy"
 	"github.com/stretchr/testify/assert"

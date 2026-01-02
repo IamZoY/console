@@ -26,7 +26,7 @@ import (
 
 	"github.com/go-openapi/runtime/middleware"
 
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/models"
 )
 
 // GetTierHandlerFunc turns a function with the right signature into a get tier handler

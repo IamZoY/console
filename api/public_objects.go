@@ -27,8 +27,8 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/swag"
-	"github.com/minio/console/api/operations"
-	"github.com/minio/console/api/operations/public"
+	"github.com/IamZoY/console/api/operations"
+	"github.com/IamZoY/console/api/operations/public"
 	xnet "github.com/minio/pkg/v3/net"
 )
 

@@ -21,9 +21,9 @@ import (
 	"errors"
 
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/minio/console/api/operations"
-	configurationApi "github.com/minio/console/api/operations/configuration"
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/api/operations"
+	configurationApi "github.com/IamZoY/console/api/operations/configuration"
+	"github.com/IamZoY/console/models"
 )
 
 func registerAdminNotificationEndpointsHandlers(api *operations.ConsoleAPI) {

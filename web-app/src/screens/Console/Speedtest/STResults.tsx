@@ -344,10 +344,7 @@ const STResults = ({ results, start }: ISTResults) => {
             <Grid container>
               {jsonView ? (
                 <Fragment>
-                  <CodeMirrorWrapper
-                    value={finalResJSON}
-                    onChange={() => {}}
-                  />
+                  <CodeMirrorWrapper value={finalResJSON} onChange={() => {}} />
                 </Fragment>
               ) : (
                 <Fragment>

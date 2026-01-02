@@ -24,7 +24,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/minio/console/pkg/auth/token"
+	"github.com/IamZoY/console/pkg/auth/token"
 	"github.com/minio/minio-go/v7/pkg/set"
 	"github.com/minio/pkg/v3/env"
 	"golang.org/x/crypto/pbkdf2"

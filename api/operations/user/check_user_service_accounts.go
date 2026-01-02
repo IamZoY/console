@@ -26,7 +26,7 @@ import (
 
 	"github.com/go-openapi/runtime/middleware"
 
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/models"
 )
 
 // CheckUserServiceAccountsHandlerFunc turns a function with the right signature into a check user service accounts handler

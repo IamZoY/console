@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"testing"
 
-	tieringApi "github.com/minio/console/api/operations/tiering"
-	"github.com/minio/console/models"
+	tieringApi "github.com/IamZoY/console/api/operations/tiering"
+	"github.com/IamZoY/console/models"
 	"github.com/minio/madmin-go/v3"
 	"github.com/stretchr/testify/assert"
 )

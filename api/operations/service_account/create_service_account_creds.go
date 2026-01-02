@@ -26,7 +26,7 @@ import (
 
 	"github.com/go-openapi/runtime/middleware"
 
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/models"
 )
 
 // CreateServiceAccountCredsHandlerFunc turns a function with the right signature into a create service account creds handler

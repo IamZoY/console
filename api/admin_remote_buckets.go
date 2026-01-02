@@ -24,15 +24,15 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/minio/console/pkg/utils"
+	"github.com/IamZoY/console/pkg/utils"
 
 	"github.com/minio/madmin-go/v3"
 
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/swag"
-	"github.com/minio/console/api/operations"
-	bucketApi "github.com/minio/console/api/operations/bucket"
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/api/operations"
+	bucketApi "github.com/IamZoY/console/api/operations/bucket"
+	"github.com/IamZoY/console/models"
 	"github.com/minio/minio-go/v7/pkg/replication"
 )
 

@@ -26,7 +26,7 @@ import (
 
 	"github.com/go-openapi/runtime/middleware"
 
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/models"
 )
 
 // DeleteMultipleServiceAccountsHandlerFunc turns a function with the right signature into a delete multiple service accounts handler

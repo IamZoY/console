@@ -25,9 +25,9 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/minio/console/api/operations"
-	inspectApi "github.com/minio/console/api/operations/inspect"
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/api/operations"
+	inspectApi "github.com/IamZoY/console/api/operations/inspect"
+	"github.com/IamZoY/console/models"
 	"github.com/minio/madmin-go/v3"
 	"github.com/secure-io/sio-go"
 )

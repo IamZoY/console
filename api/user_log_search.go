@@ -23,9 +23,9 @@ import (
 	"net/http"
 
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/minio/console/api/operations"
-	logApi "github.com/minio/console/api/operations/logging"
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/api/operations"
+	logApi "github.com/IamZoY/console/api/operations/logging"
+	"github.com/IamZoY/console/models"
 	iampolicy "github.com/minio/pkg/v3/policy"
 )
 

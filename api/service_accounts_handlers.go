@@ -22,10 +22,10 @@ import (
 	"time"
 
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/minio/console/api/operations"
-	saApi "github.com/minio/console/api/operations/service_account"
-	userApi "github.com/minio/console/api/operations/user"
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/api/operations"
+	saApi "github.com/IamZoY/console/api/operations/service_account"
+	userApi "github.com/IamZoY/console/api/operations/user"
+	"github.com/IamZoY/console/models"
 	"github.com/minio/madmin-go/v3"
 	iampolicy "github.com/minio/pkg/v3/policy"
 )

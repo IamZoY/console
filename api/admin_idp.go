@@ -23,9 +23,9 @@ import (
 	"time"
 
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/minio/console/api/operations"
-	"github.com/minio/console/api/operations/idp"
-	"github.com/minio/console/models"
+	"github.com/IamZoY/console/api/operations"
+	"github.com/IamZoY/console/api/operations/idp"
+	"github.com/IamZoY/console/models"
 	"github.com/minio/madmin-go/v3"
 )
 
