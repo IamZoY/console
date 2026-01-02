@@ -53,10 +53,6 @@ const Login = () => {
   );
   const navigateTo = useSelector((state: AppState) => state.login.navigateTo);
 
-  const backgroundAnimation = useSelector(
-    (state: AppState) => state.login.backgroundAnimation,
-  );
-
   useEffect(() => {
     if (navigateTo !== "") {
       dispatch(resetForm());
@@ -73,6 +69,7 @@ const Login = () => {
   let loginComponent;
 
   switch (loginStrategy.loginStrategy) {
+    case loginStrategyType.redirect:
     case loginStrategyType.form: {
       let redirectItems: RedirectRule[] = [];
 
@@ -131,8 +128,7 @@ const Login = () => {
       );
   }
 
-  let docsURL =
-    "https://docs.min.io/community/minio-object-store/index.html?ref=con";
+  let docsURL = "https://docs.min.io/community/minio-object-store/index.html";
 
   useEffect(() => {
     dispatch(setHelpName("login"));
@@ -158,11 +154,11 @@ const Login = () => {
             }}
           >
             <a href={docsURL} target="_blank" rel="noopener">
-              Documentation
+              MinIO Documentation
             </a>
             <span className={"separator"}>|</span>
             <a
-              href="https://github.com/minio/minio"
+              href="https://github.com/IamZoY/console"
               target="_blank"
               rel="noopener"
             >
@@ -170,15 +166,7 @@ const Login = () => {
             </a>
             <span className={"separator"}>|</span>
             <a
-              href="https://subnet.min.io/?ref=con"
-              target="_blank"
-              rel="noopener"
-            >
-              Support
-            </a>
-            <span className={"separator"}>|</span>
-            <a
-              href="https://min.io/download/?ref=con"
+              href="https://github.com/IamZoY/console/releases"
               target="_blank"
               rel="noopener"
             >
@@ -202,7 +190,6 @@ const Login = () => {
             .
           </span>
         }
-        backgroundAnimation={backgroundAnimation}
       />
     </Fragment>
   );

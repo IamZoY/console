@@ -238,9 +238,7 @@ export const objectBrowserWSMiddleware = (
         }
         break;
       case "socket/OBDisconnect":
-        if (objectsWS) {
-          objectsWS.close();
-        }
+        objectsWS.close();
         break;
 
       default:
