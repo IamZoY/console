@@ -4,6 +4,8 @@
 
 A graphical user interface for [MinIO](https://github.com/minio/minio)
 
+> **Note:** This is a custom build of MinIO Console with admin features enabled.
+
 | Object Browser                     | Dashboard                     | Creating a bucket             |
 |------------------------------------|-------------------------------|-------------------------------|
 | ![Object Browser](images/pic3.png) | ![Dashboard](images/pic1.png) | ![Dashboard](images/pic2.png) |
