@@ -5,7 +5,7 @@ BUILD_VERSION:=$(shell git describe --exact-match --tags $(git log -n1 --pretty=
 BUILD_TIME:=$(shell date 2>/dev/null)
 TAG ?= "ghcr.io/IamZoY/console:$(BUILD_VERSION)-dev"
 #TAG ?= "ghcr.io/IamZoY/console:dev"
-MINIO_VERSION ?= "quay.io/minio/minio:latest"
+MINIO_VERSION ?= "ghcr.io/iamzoy/minio:latest"
 #MINIO_VERSION ?= "quay.io/minio/minio:RELEASE.2025-04-22T22-12-26Z"
 
 TARGET_BUCKET ?= "target"
