@@ -1,0 +1,41 @@
+name: Create Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag name'
+        required: true
+        type: string
+      commit_sha:
+        description: 'Commit SHA to tag (default: HEAD)'
+        required: false
+        type: string
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.event.inputs.tag }}
+          release_name: ${{ github.event.inputs.tag }}
+          commitish: ${{ github.event.inputs.commit_sha || github.sha }}
+          body: |
+            Release ${{ github.event.inputs.tag }}
+            
+            - Updated all module paths from github.com/minio/console to github.com/IamZoY/console
+            - Fixed workflow and goreleaser configurations
+            - All module path references updated
+          draft: false
+          prerelease: false
