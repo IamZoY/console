@@ -29,6 +29,7 @@ import {
 import { errorToHandler } from "api/errors";
 import {
   Box,
+  Button,
   DisabledIcon,
   EnabledIcon,
   Grid,
@@ -117,6 +118,38 @@ const BucketSummary = () => {
     useState<boolean>(false);
   const [enableVersioningOpen, setEnableVersioningOpen] =
     useState<boolean>(false);
+  const [rebuildingIndex, setRebuildingIndex] = useState<boolean>(false);
+  const [rebuildStatus, setRebuildStatus] = useState<string>("");
+
+  const handleRebuildTagIndex = () => {
+    setRebuildingIndex(true);
+    fetch(`/api/v1/admin/tag-index/rebuild/${bucketName}`, {
+      method: "POST",
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed with status ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        const counts = data.counts || {};
+        setRebuildStatus(
+          `Last rebuild: ${new Date().toLocaleString()} | Success: ${counts.Success || 0}, Failed: ${counts.Failed || 0}, Untagged: ${counts.Untagged || 0}`,
+        );
+        setRebuildingIndex(false);
+      })
+      .catch((err) => {
+        dispatch(
+          setErrorSnackMessage({
+            errorMessage: `Failed to rebuild tag index: ${err.message}`,
+            detailedError: "",
+          }),
+        );
+        setRebuildingIndex(false);
+      });
+  };
+
   useEffect(() => {
     dispatch(setHelpName("bucket_detail_summary"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -719,6 +752,42 @@ const BucketSummary = () => {
             </Grid>
           </SecureComponent>
         )}
+
+        <Grid item xs={12} sx={{ marginTop: 5 }}>
+          <SectionTitle separator sx={{ marginBottom: 15 }}>
+            Event Tag Index
+          </SectionTitle>
+
+          <Box sx={twoColCssGridLayoutConfig}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 2,
+              }}
+            >
+              <ValuePair
+                label={"Status:"}
+                value={
+                  <label className={"muted"}>
+                    {rebuildStatus || "No index built yet"}
+                  </label>
+                }
+              />
+              <Box>
+                <Button
+                  id={"rebuild-tag-index"}
+                  variant="callAction"
+                  onClick={handleRebuildTagIndex}
+                  disabled={rebuildingIndex}
+                  label={
+                    rebuildingIndex ? "Rebuilding..." : "Rebuild Tag Index"
+                  }
+                />
+              </Box>
+            </Box>
+          </Box>
+        </Grid>
       </Grid>
     </Fragment>
   );

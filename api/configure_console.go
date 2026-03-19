@@ -306,8 +306,10 @@ func debugLogHeaders(sb *strings.Builder, h http.Header) {
 // So this is a good place to plug in a panic handling middleware, logger and metrics
 func setupGlobalMiddleware(handler http.Handler) http.Handler {
 	gnext := gzhttp.GzipHandler(handler)
+	// Tag index rebuild endpoint
+	next := TagIndexRebuildMiddleware(gnext)
 	// if audit-log is enabled console will log all incoming request
-	next := AuditLogMiddleware(gnext)
+	next = AuditLogMiddleware(next)
 	// serve static files
 	next = FileServerMiddleware(next)
 	// add information to request context
