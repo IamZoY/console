@@ -34,14 +34,15 @@ test
     // Create a bucket
     await functions.setUpBucket(t, "bucketwritew");
   })("Bucket access is set to W", async (t) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const accessSelector = Selector(
+      `#access-${constants.TEST_BUCKET_NAME}-bucketwritew`,
+    );
     await t
       .useRole(roles.bucketWrite)
       .navigateTo("http://localhost:9090/buckets")
-      .expect(
-        Selector(`#access-${constants.TEST_BUCKET_NAME}-bucketwritew`)
-          .innerText,
-      )
+      .expect(accessSelector.exists)
+      .ok({ timeout: 30000 })
+      .expect(accessSelector.innerText)
       .eql("Access: W");
   })
   .after(async (t) => {
