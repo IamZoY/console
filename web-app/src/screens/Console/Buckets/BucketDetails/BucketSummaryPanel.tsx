@@ -134,8 +134,18 @@ const BucketSummary = () => {
       })
       .then((data) => {
         const counts = data.counts || {};
+        const parts: string[] = [];
+        for (const tagKey of Object.keys(counts)) {
+          const vals = counts[tagKey] || {};
+          const valParts = Object.entries(vals)
+            .map(([k, v]) => `${k}=${v}`)
+            .join(", ");
+          parts.push(`${tagKey}: ${valParts}`);
+        }
+        const summary =
+          parts.length > 0 ? parts.join(" | ") : "No tagged objects";
         setRebuildStatus(
-          `Last rebuild: ${new Date().toLocaleString()} | Success: ${counts.Success || 0}, Failed: ${counts.Failed || 0}, Untagged: ${counts.Untagged || 0}`,
+          `Last rebuild: ${new Date().toLocaleString()} | ${summary}`,
         );
         setRebuildingIndex(false);
       })
