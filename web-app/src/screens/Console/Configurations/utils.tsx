@@ -415,7 +415,8 @@ export const fieldsConfigurations: any = {
       name: "tag_name",
       required: false,
       label: "Tag Name",
-      tooltip: "The tag key applied to objects on event delivery (default: EventSent)",
+      tooltip:
+        "The tag key applied to objects on event delivery (default: EventSent)",
       type: "string",
       placeholder: "e.g. EventSentToDiode",
     },
@@ -423,7 +424,8 @@ export const fieldsConfigurations: any = {
       name: "tag_success",
       required: false,
       label: "Success Value",
-      tooltip: "Tag value when event is delivered successfully (default: Success)",
+      tooltip:
+        "Tag value when event is delivered successfully (default: Success)",
       type: "string",
       placeholder: "e.g. Success",
     },

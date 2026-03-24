@@ -16,13 +16,7 @@
 
 import React, { Fragment, useState } from "react";
 import { IConfigurationSys, IElementValue } from "../../Configurations/types";
-import {
-  Button,
-  DataTable,
-  Grid,
-  TierOfflineIcon,
-  TierOnlineIcon,
-} from "mds";
+import { Button, DataTable, Grid, TierOfflineIcon, TierOnlineIcon } from "mds";
 import AddEventTagModal from "./AddEventTagModal";
 import EditEventTagModal from "./EditEventTagModal";
 import DeleteWebhookEndpoint from "../WebhookSettings/DeleteWebhookEndpoint";
@@ -41,8 +35,9 @@ const EventTagSettings = ({
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [selectedARN, setSelectedARN] = useState("");
-  const [selectedItem, setSelectedItem] =
-    useState<IConfigurationSys | null>(null);
+  const [selectedItem, setSelectedItem] = useState<IConfigurationSys | null>(
+    null,
+  );
 
   const getKVValue = (kvs: IElementValue[], key: string): string => {
     const found = kvs.find((kv) => kv.key === key);
@@ -68,7 +63,9 @@ const EventTagSettings = ({
           }}
         >
           {envOn ? (
-            <TierOnlineIcon style={{ fill: "#4CCB92", width: 14, height: 14 }} />
+            <TierOnlineIcon
+              style={{ fill: "#4CCB92", width: 14, height: 14 }}
+            />
           ) : (
             <TierOfflineIcon
               style={{ fill: "#C83B51", width: 14, height: 14 }}
@@ -91,18 +88,19 @@ const EventTagSettings = ({
         {isOn ? (
           <TierOnlineIcon style={{ fill: "#4CCB92", width: 14, height: 14 }} />
         ) : (
-          <TierOfflineIcon
-            style={{ fill: "#C83B51", width: 14, height: 14 }}
-          />
+          <TierOfflineIcon style={{ fill: "#C83B51", width: 14, height: 14 }} />
         )}
         {isOn ? "Enabled" : "Disabled"}
       </Grid>
     );
   };
 
-  const renderTagName = (item: IElementValue[]) => getKVValue(item, "tag_name") || "EventSent";
-  const renderTagSuccess = (item: IElementValue[]) => getKVValue(item, "tag_success") || "Success";
-  const renderTagFailed = (item: IElementValue[]) => getKVValue(item, "tag_failed") || "Failed";
+  const renderTagName = (item: IElementValue[]) =>
+    getKVValue(item, "tag_name") || "EventSent";
+  const renderTagSuccess = (item: IElementValue[]) =>
+    getKVValue(item, "tag_success") || "Success";
+  const renderTagFailed = (item: IElementValue[]) =>
+    getKVValue(item, "tag_failed") || "Failed";
 
   const actions = [
     {
@@ -138,10 +136,7 @@ const EventTagSettings = ({
   return (
     <Grid container>
       {addOpen && (
-        <AddEventTagModal
-          open={addOpen}
-          onClose={() => setAddOpen(false)}
-        />
+        <AddEventTagModal open={addOpen} onClose={() => setAddOpen(false)} />
       )}
       {deleteOpen && (
         <DeleteWebhookEndpoint
