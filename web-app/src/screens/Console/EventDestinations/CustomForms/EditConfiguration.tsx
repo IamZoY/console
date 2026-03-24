@@ -42,6 +42,7 @@ import {
 } from "../../../../systemSlice";
 import { AppState, useAppDispatch } from "../../../../store";
 import WebhookSettings from "../WebhookSettings/WebhookSettings";
+import EventTagSettings from "../EventTagSettings/EventTagSettings";
 import ConfTargetGeneric from "../ConfTargetGeneric";
 import ResetConfigurationModal from "./ResetConfigurationModal";
 
@@ -203,6 +204,11 @@ const EditConfiguration = ({
                 WebhookSettingslist={configSubsysList}
                 setResetConfigurationOpen={resetConfigurationMOpen}
                 type={selectedConfiguration.configuration_id}
+              />
+            ) : selectedConfiguration.configuration_id === "event_tag" ? (
+              <EventTagSettings
+                eventTagList={configSubsysList}
+                setResetConfigurationOpen={resetConfigurationMOpen}
               />
             ) : (
               <Fragment>

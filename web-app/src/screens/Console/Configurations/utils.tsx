@@ -411,6 +411,40 @@ export const fieldsConfigurations: any = {
         return origValue === "" || origValue === "on" ? "on" : "off";
       },
     },
+    {
+      name: "tag_name",
+      required: false,
+      label: "Tag Name",
+      tooltip: "The tag key applied to objects on event delivery (default: EventSent)",
+      type: "string",
+      placeholder: "e.g. EventSentToDiode",
+    },
+    {
+      name: "tag_success",
+      required: false,
+      label: "Success Value",
+      tooltip: "Tag value when event is delivered successfully (default: Success)",
+      type: "string",
+      placeholder: "e.g. Success",
+    },
+    {
+      name: "tag_failed",
+      required: false,
+      label: "Failed Value",
+      tooltip: "Tag value when event delivery fails (default: Failed)",
+      type: "string",
+      placeholder: "e.g. Failed",
+    },
+    {
+      name: "event_types",
+      required: false,
+      label: "Event Types",
+      tooltip:
+        "Comma-separated S3 event types that trigger this tag rule (default: s3:ObjectCreated:Put,s3:ObjectCreated:Post,s3:ObjectCreated:Copy,s3:ObjectCreated:CompleteMultipartUpload)",
+      type: "string",
+      placeholder:
+        "s3:ObjectCreated:Put,s3:ObjectCreated:Post,s3:ObjectCreated:Copy,s3:ObjectCreated:CompleteMultipartUpload",
+    },
   ],
 };
 
